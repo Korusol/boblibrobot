@@ -7,7 +7,9 @@ use Slim\Http\Response;
 
 $app->post('/[{name}]', function (Request $request, Response $response, array $args) {
 
-        $token = '648589176:AAH_lZlA5DtO5TSTcsYvlXTwRsxbHKkEBT8';
+        $dotEnv = new Dotenv\Dotenv( realpath(__DIR__ . '/..'));
+        $dotEnv->load();
+        $token = getenv('SECRET_KEY_TELEGRAM');
 
         $bot = new \TelegramBot\Api\Client($token);
 
