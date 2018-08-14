@@ -7,7 +7,7 @@ use Slim\Http\Response;
 
 $app->post('/[{name}]', function (Request $request, Response $response, array $args) {
 
-        $dotEnv = new Dotenv\Dotenv( realpath(__DIR__ . '/..'));
+        $dotEnv = new Dotenv\Dotenv( dirname(dirname( __FILE__)));
         $dotEnv->load();
         $token = getenv('SECRET_KEY_TELEGRAM');
 
